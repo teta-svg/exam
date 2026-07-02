@@ -1,0 +1,75 @@
+﻿<Window x:Class="SubjectControlApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SubjectControlApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Введите количество элементов" Grid.ColumnSpan="3" Grid.Row="0"/>
+        <TextBox x:Name="CountBox" Grid.ColumnSpan="3" Grid.Row="1"/>
+        <Button x:Name="CountBtn" Grid.ColumnSpan="3" Grid.Row="2" Content="Подтвердить" Click="CountBtn_Click"/>
+        <TextBlock Text="Размер массива" Grid.Row="3" Grid.Column="0"/>
+        <TextBlock Text="" Grid.Row="3" Grid.Column="1"  x:Name="MassLengh"/>
+        <TextBlock Text ="Ввдите название" Grid.Row ="4" Grid.Column="0"/>
+        <TextBox x:Name="NameBox" Grid.Row ="5" Grid.Column="0"/>
+        <TextBlock Text ="Ввдите семестр" Grid.Row ="4" Grid.Column="1"/>
+        <TextBox x:Name="SemestrBox" Grid.Row ="5" Grid.Column="1"/>
+        <TextBlock Text ="Ввдите форму аттестации" Grid.Row ="4" Grid.Column="2"/>
+        <TextBox x:Name="TypeAttBox" Grid.Row ="5" Grid.Column="2"/>
+        <Button x:Name="AddBtn" Grid.ColumnSpan="3" Grid.Row="6" Content="Добавить" Click="AddBtn_Click"/>
+        <Button x:Name="SortBtn" Grid.ColumnSpan="3" Grid.Row="7" Content="Отсортировать" Click="SortBtn_Click"/>
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Исодный массив"/>
+        <TextBlock Grid.Row="8" Grid.Column="2" Text="Отсортированыый массив"/>
+        <ListBox Grid.Row="9" Grid.Column="0" ItemsSource="{Binding Subjects}" x:Name="SubjectsList">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Text="{Binding Name}" Margin="5" Grid.Column="0"/>
+                        <TextBox Text="{Binding Semestr}" Margin="5" Grid.Column="1"/>
+                        <TextBox Text="{Binding AttestationType}" Margin="5" Grid.Column="2"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Grid.Row="9" Grid.Column="2" ItemsSource="{Binding SubjectsSort}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Text="{Binding Name}" Margin="5" Grid.Column="0"/>
+                        <TextBox Text="{Binding Semestr}" Margin="5" Grid.Column="1"/>
+                        <TextBox Text="{Binding AttestationType}" Margin="5" Grid.Column="2"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
